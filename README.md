@@ -34,7 +34,7 @@ This Python script provides a suite of tools for WiFi penetration testing. It al
 
    Clone this repository:
    ```sh
-   1:- git clone https://github.com/yourusername/wifi-multi-tasking-penetration-tool.git
+   1:- git clone https://github.com/AtharvK-Cyber/Wifi-Tool.git
    2:- cd Directory
    3:- sudo apt update
    4:- sudo apt install aircrack-ng reaver ettercap-graphical
