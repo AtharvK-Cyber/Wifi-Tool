@@ -33,7 +33,15 @@ def run_iwconfig():
 
 def start_monitor_mode(interface):
     print(f"{MAGENTA}[+] Starting monitor mode on {interface}...{RESET}")
-    subprocess.call(f"sudo airmon-ng start {interface}", shell=True)
+
+    # Launch a new terminal window and run the commands
+    subprocess.Popen(["gnome-terminal", "--", "bash", "-c", 
+                        f"ifconfig {interface} down; "
+                        f"iwconfig {interface} mode monitor; "
+                        f"ifconfig {interface} up; "
+                        f"aireplay-ng --test {interface}; "
+                        f"exit"  # Exit the bash shell after running the commands
+                       ])
 
 def scan_networks(interface):
     print(f"{BLUE}[+] Scanning for available networks...{RESET}")
@@ -124,4 +132,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
